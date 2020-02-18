@@ -1,2 +1,2 @@
-# Desafio Estagiário Web Tokenlab - Event U up
+# Desafio Estagiário Web Tokenlab - Event U Up
 
