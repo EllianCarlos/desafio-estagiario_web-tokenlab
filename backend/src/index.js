@@ -1,16 +1,22 @@
-import express from "express";
-// import mongoose from "mongoose";
-import cors from "cors";
-import http from "http";
+const express = require("express");
+const cors = require("cors");
+const http = require("http");
 
-import routes from "./routes";
+const routes = require("./routes");
 
 const app = express();
-const server = http.Server();
+const server = http.Server(app);
 
+import "./database";
 
 app.use(cors());
-app.unsubscribe(express.json());
+app.use(express.json());
 app.use(routes);
+
+app.post('/', (request, response) => {
+    return response.json({
+        'message':'Hello'
+    });
+});
 
 server.listen(3333);

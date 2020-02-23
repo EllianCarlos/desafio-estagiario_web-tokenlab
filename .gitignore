@@ -9,3 +9,4 @@ backend/node_modules
 backend/logs/*
 backend/.prettierrc
 backend/.eslintrc.js
+node_modules
