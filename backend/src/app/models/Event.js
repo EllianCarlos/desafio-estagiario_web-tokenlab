@@ -1,4 +1,5 @@
 import Sequelize, { Model, DataTypes } from 'sequelize';
+import datefns from "date-fns";
 
 'use strict';
 
@@ -24,6 +25,10 @@ class Event extends Model {
           type: DataTypes.STRING,
           allowNull: false,
         },
+        invited:{
+          type: DataTypes.ARRAY(DataTypes.STRING),
+          allowNull:false,
+        },
         start: {
           type: DataTypes.DATE,
           allowNull: false,
@@ -36,6 +41,11 @@ class Event extends Model {
           type: DataTypes.BOOLEAN,
           allowNull: false,
           defaultValue: false,
+        },
+        canceled_at: {
+          type: DataTypes.DATE,
+          allowNull: true,
+          defaultValue: null,
         },
         name: {
           type: DataTypes.STRING,

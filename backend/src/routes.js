@@ -18,6 +18,8 @@ routes.delete('/users', UserController.delete);
 routes.get('/eventos', EventController.index);
 routes.put('/eventos', EventController.update);
 routes.post('/eventos', EventController.store);
+routes.post('/users/eventos/', EventController.show);
+// routes.post('/eventos/', EventController.show);
 routes.delete('/eventos', EventController.delete);
 
 

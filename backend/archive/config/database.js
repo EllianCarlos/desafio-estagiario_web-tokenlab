@@ -6,9 +6,8 @@ module.exports = {
     database: process.env.DB_NAME,
     table: process.env.DB_TABLE,
     host: process.env.DB_HOST,
-    // port:3306,
-    port:5432,
-    dialect: "postgres",
+    port:3306,
+    dialect: "mysql",
     define: {
       timestamps: true,
       timestampsWithDefaults: true,

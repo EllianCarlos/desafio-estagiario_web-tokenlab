@@ -1,26 +1,26 @@
 {
   "development": {
-    "username": "postgres",
+    "username": "root",
     "password": "rkp",
     "database": "db_events_tokenlab",
     "host": "127.0.0.1",
-    "dialect": "postgres",
+    "dialect": "mysql",
     "operatorsAliases": false
   },
   "test": {
-    "username": "postgres",
+    "username": "root",
     "password": "rkp",
     "database": "db_events_tokenlab",
     "host": "127.0.0.1",
-    "dialect": "postgres",
+    "dialect": "mysql",
     "operatorsAliases": false
   },
   "production": {
-    "username": "postgres",
+    "username": "root",
     "password": "rkp",
     "database": "db_events_tokenlab",
     "host": "127.0.0.1",
-    "dialect": "postgres",
+    "dialect": "mysql",
     "operatorsAliases": false
   }
 }

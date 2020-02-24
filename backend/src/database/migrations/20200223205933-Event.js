@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  up: (queryInterface, Sequelize) => {
+  up: (queryInterface, Sequelize, DataTypes) => {
     /*
       Add altering commands here.
       Return a promise to correctly handle asynchronicity.
@@ -15,10 +15,14 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        unique:true,
+        unique: true,
       },
       creator: {
         type: Sequelize.STRING,
+        allowNull: false,
+      },
+      invited: {
+        type: Sequelize.ARRAY(Sequelize.STRING),
         allowNull: false,
       },
       start: {
@@ -33,6 +37,10 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         allowNull: false,
         defaulValue: false,
+      },
+      canceled_at: {
+        type: Sequelize.DATE,
+        allowNull:true,
       },
       name: {
         type: Sequelize.STRING,
@@ -61,6 +69,6 @@ module.exports = {
       Example:
       return queryInterface.dropTable('users');
     */
-   return queryInterface.dropTable('events');
-  }
+    return queryInterface.dropTable('events');
+  },
 };
