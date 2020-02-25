@@ -1,0 +1,63 @@
+$bHeight: 5vh;
+$bTop: (12 - $bHeight)/2;
+
+header {
+  width: 100vw;
+  height: 12vh;
+
+  margin: 0;
+  padding: 0;
+
+  background-color: #695CC4;
+
+  display: flex;
+
+
+  h1{
+    color: white;
+
+    margin: 0;
+
+    text-align: center;
+    flex: 1;
+    line-height: 12vh;
+    a {
+      font-family: 'Pacifico', ;
+      color: white;
+      text-decoration: none;
+    }
+  }
+
+  a {
+    color: #FFFF;
+    text-decoration: none;
+  }
+
+  div.button {
+
+    display: inline-block;
+    position: absolute;
+
+    height: $bHeight;
+    width: 8vw;
+    background-color: #695CC4;
+
+    border: 0.1vh solid white;
+
+
+    text-align: center;
+    line-height: $bHeight;
+
+
+  }
+
+  .first {
+    top: $bTop;
+    left: 80vw;
+  }
+
+  .second {
+    top: $bTop;
+    left: 90vw;
+  }
+}

@@ -1,10 +1,7 @@
-// import axios from 'axios';
 import * as Yup from 'yup';
 import {Op} from "sequelize";
 
 import Event from '../models/Event';
-
-// TODO: Store.
 
 class EventController {
   async index(request, response) {
