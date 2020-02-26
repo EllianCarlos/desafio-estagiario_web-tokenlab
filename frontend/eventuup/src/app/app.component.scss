@@ -9,5 +9,22 @@ main {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
+
+  div.outsideButton {
+
+    width: 35vh;
+    height: 88vh;
+
+    // border:1px solid black;
+
+    img {
+      margin-left: 10vw;
+      margin-top: 72vh;
+
+      width: 10vh;
+      height: 10vh;
+    }
+
+  }
 }

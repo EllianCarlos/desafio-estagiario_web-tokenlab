@@ -1,0 +1,20 @@
+div {
+  width: 5vw;
+  height: 5vw;
+
+  text-align: center;
+
+  // background-color: #695CC4;
+  background-color: rgba(0,0,0,0.33);
+  border-radius: 1%;
+
+  text-indent: 1vw;
+
+  span {
+    line-height: 3vw;
+
+    color: white;
+    font-weight: bold;
+
+  }
+}

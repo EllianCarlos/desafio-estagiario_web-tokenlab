@@ -1,5 +1,6 @@
 $myColor:#FFB339;
 
+
 article {
   // box-sizing: border-box;
 
@@ -12,6 +13,7 @@ article {
   padding: 1vh;
   padding-top: 0;
   padding-left: 0;
+
 
   h1 {
     width: 70.5vw;
@@ -33,4 +35,38 @@ article {
     color: white;
     font-weight: lighter;
   }
+
+  div.imgConteinerOne {
+    height:2vw;
+    width:2vw;
+
+    margin-top: 25vh;
+    float: left;
+  }
+
+  div.imgConteinerTwo {
+    height:2vw;
+    width:2vw;
+
+    float: right;
+    margin-top: -35.5vh;
+  }
+
+  div.dayBallHolder {
+    height: 60vh;
+    width: 58vw;
+
+    margin-left: 7vw;
+
+    display: grid;
+    grid-template-columns: repeat(7, [column] 8vw );
+    // grid-template-columns: repeat(7, 1fr 1fc);
+    grid-gap: 0vw 0.2vw;
+
+    // border:1px solid black;
+
+    align-items: center;
+    justify-content: center;
+  }
+
 }

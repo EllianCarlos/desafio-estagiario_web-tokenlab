@@ -5,7 +5,9 @@ import Event from '../models/Event';
 
 class EventController {
   async index(request, response) {
-      const eventos = await Event.findAll();
+      const eventos = await Event.findAll({where: {
+        canceled_at:null,
+      }});
 
       return response.json({eventos});
   }
@@ -17,7 +19,6 @@ class EventController {
 
     const events = await Event.findAll({
       where: {
-        canceled_at: null,
         [Op.or]:
           [ 
             {

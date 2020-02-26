@@ -2,6 +2,7 @@ const { Router } = require('express');
 
 const UserController = require('./app/controllers/UserController');
 const EventController = require('./app/controllers/EventController');
+import SessionController from './app/controllers/SessionController';
 
 const routes = Router();
 
@@ -12,8 +13,10 @@ const routes = Router();
 routes.get('/users', UserController.index);
 routes.put('/users', UserController.update);
 routes.post('/users', UserController.store);
+routes.post('/users/show', UserController.show);
 routes.delete('/users', UserController.delete);
 
+routes.post('/session', SessionController.store);
 
 routes.get('/eventos', EventController.index);
 routes.put('/eventos', EventController.update);

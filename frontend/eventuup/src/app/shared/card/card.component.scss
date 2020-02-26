@@ -1,0 +1,70 @@
+div.conteiner {
+  z-index: 50;
+
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+
+  width: 25vw;
+  height: 45vh;
+
+  border: 1px solid grey;
+  background-color: white;
+
+  h1 {
+    text-align: center;
+    font-size: 6vh;
+  }
+
+  hr {
+    width: 85%;
+    // border: ;
+  }
+
+  form {
+    width: 100%;
+    height: 30vh;
+
+    // display: flex;
+    // flex-direction:column;
+    // align-items: center;
+    // justify-content: space-around;
+
+    label {
+      // align-self: flex-start;
+      // margin-left: 13%;
+      width: 100%;
+      float: left;
+      margin-left: 10%;
+      margin-top: 1vh;
+
+      font-size: 4vh;
+    }
+
+    input {
+
+      border: 0.3vh solid #E89713;
+      border-radius: 1vh;
+      inset: 0;
+
+      background-color: #B8B1ED;
+
+      height: 4vh;
+      width: 80%;
+
+      margin-left: 10%;
+      margin-top: 2vh;
+    }
+
+    button {
+      width: 5vw;
+      height: 5vh;
+
+      margin-top: 2vh;
+      margin-left: 10vw;
+    }
+  }
+
+}

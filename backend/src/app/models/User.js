@@ -1,4 +1,7 @@
 import mongoose from 'mongoose';
+import bcrypt from 'bcryptjs';
+
+
 
 const UserSchema = new mongoose.Schema({
     id: {
@@ -13,7 +16,11 @@ const UserSchema = new mongoose.Schema({
     },
     company: {
         type:String,
-        allowNull: false        
+        allowNull: true        
+    },
+    photo_url: {
+        type:String,
+        allowNull:true
     },
     email: {
         type:String,
@@ -23,6 +30,20 @@ const UserSchema = new mongoose.Schema({
         type:String,
         allowNull: false        
     },
+    password_hash: {
+        type:String,
+        allowNull: false        
+    },
+    
 });
+
+UserSchema.pre('save', async user => {
+    if (user.password) {
+        user.password_hash = await bcrypt.hash(user.password, 8);
+        user.password = user.password_hash;
+    }
+});
+
+
 
 module.exports = mongoose.model('User', UserSchema);

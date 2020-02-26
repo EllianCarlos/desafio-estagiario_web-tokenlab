@@ -1,13 +1,18 @@
 <header>
   <h1><a href=""> Event U Up  </a></h1>
   <a href="">
-    <div class="button first">
+    <div class="button first" *ngIf="render()" onclick="click('Show Login')">
       Login!
     </div>
   </a>
   <a href="">
-    <div class="button second">
+    <div class="button second" *ngIf="render()">
       Register!
     </div>
   </a>
+  <div class="showUser" *ngIf="!render()">
+    <img [src]="photo_url" alt="">
+    <p>{{name}}</p>
+    <p class="notThis">{{email}}</p>
+  </div>
 </header>

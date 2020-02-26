@@ -3,7 +3,7 @@ $myColor:#FFB339;
 aside {
   // box-sizing: border-box;
 
-  width: 20vw;
+  width: 50vw;
   height: 75vh;
 
   border: 0.5vh solid $myColor;
@@ -14,11 +14,10 @@ aside {
   padding-left: 0;
 
   h1 {
-    width: 20.5vw;
+    width: 50.5vw;
 
     margin-top: -0.5vh;
     margin-left: -0.5vh;
-
 
     background-color: $myColor;
     line-height: 10vh;
@@ -31,5 +30,12 @@ aside {
     font-family: 'Rubik',;
     color: white;
     font-weight: lighter;
+  }
+
+  div.meetingHolder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center ;
   }
 }

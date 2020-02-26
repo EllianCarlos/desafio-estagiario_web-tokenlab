@@ -1,6 +1,14 @@
 <article>
   <h1>Janeiro de 2018</h1>
-  <ul>
-    <li *ngFor="let num of fillNumbers()">{{num}}</li>
-  </ul>
+  <div class="container">
+    <div class="imgConteinerOne">
+      <img src="../../../assets/icons/left-arrow.png" alt="">
+    </div>
+    <div class="dayBallHolder">
+      <app-day-ball *ngFor="let num of fillNumbers()" ></app-day-ball>
+    </div>
+    <div class="imgConteinerTwo">
+      <img src="../../../assets/icons/right-arrow.png" alt="">
+    </div>
+  </div>
 </article>

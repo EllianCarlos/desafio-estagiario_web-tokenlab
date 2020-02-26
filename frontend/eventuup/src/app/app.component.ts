@@ -1,26 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 
-import axios from 'axios';
-
-const urlAPI = 'http://localhost:3333';
+import api from './services/api';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
-
 export class AppComponent {
   info;
 
-  constructor(){
+  constructor() {
     this.ngOnInit();
   }
 
-  ngOnInit() :void {
-    axios.get(urlAPI+'/eventos').then(response => (this.info = response.data.eventos));
+  ngOnInit(): void {
+    api.get('/eventos').then(response => (this.info = response.data.eventos));
     console.log(this.info);
   }
-
 
 }

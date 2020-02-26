@@ -1,5 +1,7 @@
-import axios from "axios";
 import * as Yup from 'yup';
+import bcrypt from 'bcryptjs';
+import axios from "axios";
+
 
 import User from "../models/User";
 
@@ -12,16 +14,22 @@ module.exports = {
   },
 
   async show(request, response) {
-    const { id } = request.query;
+    const { _id } = request.body;
 
-    const user = await User.find({ id });
+    // if (!_id) {
+    //   return res
+    //     .status(400)
+    //     .json({ error: 'Os dados inseridos não são valídos.' });
+    // }
+
+    const user = await User.findById(_id);
 
     return response.json(user);
   },
 
   async store(request, response) {
     const schema = Yup.object().shape({
-      username: Yup.string().required(),
+      company: Yup.string(),
       name: Yup.string().required(),
       password: Yup.string()
         .required()
@@ -29,8 +37,7 @@ module.exports = {
       email: Yup.string()
         .required()
         .email(),
-      bio: Yup.string(),
-      avatar_url: Yup.string(),
+      photo_url: Yup.string(),
     });
 
     if (!(await schema.isValid(request.body))) {
@@ -39,12 +46,25 @@ module.exports = {
         .json({ error: 'Os dados inseridos não são valídos.' });
     }
 
-    const username = request.body.username;
+    const { 
+      company,
+      name,
+      password,
+      email,
+      photo_url
+    } = request.body;
 
-    const user = await User.findOne({ username });
+    const user = await User.findOne({ email });
 
     if (!user) {
-      const userInto = await User.create(request.body);
+      const password_hash = await bcrypt.hash(password, 8);
+      const userInto = await User.create({
+        company,
+        name,
+        password:password_hash,
+        email,
+        photo_url,
+      });
       return response.json({ userInto });
     }
 
@@ -55,12 +75,11 @@ module.exports = {
 
   async update(request, response) {
     const schema = Yup.object().shape({
-      username: Yup.string(),
+      company: Yup.string(),
       name: Yup.string(),
       password: Yup.string().min(6),
-      email: Yup.string().email(),
-      bio: Yup.string(),
-      avatar_url: Yup.string(),
+      email: Yup.string().email().required(),
+      photo_url: Yup.string(),
     });
 
     if (!(await schema.isValid(request.body))) {
@@ -68,13 +87,12 @@ module.exports = {
         .status(400)
         .json({ error: 'Os dados inseridos não são valídos.' });
     }
+    const email = request.body.email;
+    const user = await User.findOne({email});
+    console.log(user)
 
-    const id = request.query.id;
-    console.log(id)
-    const user = await User.findOne({ id });
-
-    if (!user) {
-      const userInto = await User.findOneAndUpdate(id, request.body);
+    if (user) {
+      const userInto = await User.findOneAndUpdate({email:email}, request.body, {new:true});
       return response.json({ userInto });
     }
 
@@ -84,9 +102,9 @@ module.exports = {
   },
 
   async delete(request, response) {
-    const {id} = request.body;
+    const { id } = request.body;
 
-    const userToDelete = await User.findOne({"_id":id});
+    const userToDelete = await User.findOne({_id:id});
     console.log(userToDelete);
 
     if(!userToDelete) {
@@ -95,12 +113,12 @@ module.exports = {
       })
     }
 
-    const user = await User.findOneAndDelete({id});
+    const user = await User.findOneAndDelete({_id:id});
 
     return response.json({
       message:`Usuário de id:${id} deletado`,
       userToDelete,
-    });
+    }); 
 
   },
 };

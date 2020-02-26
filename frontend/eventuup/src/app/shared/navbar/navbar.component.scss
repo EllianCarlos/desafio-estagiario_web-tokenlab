@@ -12,6 +12,50 @@ header {
 
   display: flex;
 
+  div.showUser {
+
+    width: 23vw;
+    height: 8vh;
+    margin-top: 2vh;
+    // border: 1px solid black;
+
+    float: right;
+    padding: 0;
+    margin-right: 2vw;
+    img {
+      margin-top: 0vh;
+
+      height: 7vh;
+      width: 7vh;
+
+      border: 0.4vh white solid;
+      border-radius: 50%;
+
+      float: right;
+    }
+
+    p{
+
+      margin-top: 1.5vh;
+      text-align: right;
+      // border: 1px white solid;
+
+      width: 18vw;
+      height: 3vh;
+
+      font-size: 2vh;
+
+      color: white;
+
+    }
+    .notThis {
+      text-align: right;
+      margin-top: 0;
+      font-size: 1.5vh;
+    }
+
+  }
+
 
   h1{
     color: white;

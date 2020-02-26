@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DayBallComponent } from '../day-ball/day-ball.component';
 
 @Component({
   selector: 'app-callendar',
