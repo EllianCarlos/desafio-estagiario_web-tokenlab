@@ -1,25 +1,25 @@
 <aside>
   <h1>Adicionar Evento!</h1>
-  <form >
+  <form [formGroup]="createEvents" (ngSubmit)="handleNewEvent()">
     <label for="">Nome</label>
     <br/>
-    <input type="text">
+    <input type="text" formControlName="name">
     <br/>
     <label for="">Descrição</label>
     <br/>
-    <input type="text">
+    <input type="text" formControlName="description">
     <br/>
     <label for="">Começo</label>
     <br/>
-    <input type="datetime-local">
+    <input type="datetime-local" formControlName="start">
     <br/>
     <label for="">Fim</label>
     <br/>
-    <input type="datetime-local">
+    <input type="datetime-local" formControlName="end">
     <br/>
     <label for="">Convidados</label>
     <br/>
-    <input type="text" placeholder="e-mail dos convidados">
+    <input type="text" placeholder="e-mail dos convidados" formControlName="invited">
     <button type="submit">Adicionar Evento!</button>
   </form>
 </aside>

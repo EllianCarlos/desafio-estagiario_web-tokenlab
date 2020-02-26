@@ -12,6 +12,44 @@ header {
 
   display: flex;
 
+  form {
+    float: right;
+    height: 7vh;
+    width: 30vw;
+
+    margin-right: 2vw;
+    margin-top: 2vh;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    input {
+
+      height: 5vh;
+      background-color: #695CC4;
+
+      border:0.05vw solid white;
+
+      text-indent: 0.5vw;
+      color: white;
+
+    }
+
+    input::placeholder{
+      color: rgba(255,255,255,0.8);
+    }
+
+    button {
+      height: 5vh;
+      width: 4vw;
+      color: #695CC4;
+      border: none;
+      background-color:white;
+    }
+  }
+
   div.showUser {
 
     width: 23vw;

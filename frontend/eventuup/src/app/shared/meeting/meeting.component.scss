@@ -1,5 +1,6 @@
 div.meetingHolder {
-  width: 100%;
+  width: 50.5vw;
+  margin-left: 0.5vw;
   height: 15vh;
 
   margin-top: 1.5vh;
@@ -7,18 +8,20 @@ div.meetingHolder {
 
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
+  // border: 1px solid black;
 
   div.photoHolder {
     background-color: grey;
-    width: 8vw;
-    height: 8vw;
+    width: 5vw;
+    height: 5vw;
     border-radius: 50%;
+    // border: 1px solid black;
   }
 
   div.textHolder {
-    width: 65%;
+    width: 75%;
     height: 15vh;
 
     // border: 1px solid black;

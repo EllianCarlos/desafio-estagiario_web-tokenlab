@@ -13,11 +13,14 @@ import {MeetingComponent} from '../meeting/meeting.component';
 
 export class NextMeetingsComponent implements OnInit {
 
+  @Input() meetings: JSON[];
+
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  @Input() meetings: JSON;
+
 
 }

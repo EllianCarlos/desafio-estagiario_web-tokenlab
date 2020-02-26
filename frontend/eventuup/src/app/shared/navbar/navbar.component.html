@@ -1,6 +1,11 @@
 <header>
   <h1><a href=""> Event U Up  </a></h1>
-  <a href="">
+  <form [formGroup]="loginForm" (ngSubmit)="handleSubmit()" *ngIf="render()">
+    <input type="email" name="email" placeholder="email@eventuup.com" formControlName="email">
+    <input type="password" name="password" placeholder="senha" formControlName="password">
+    <button type="submit">Go!</button>
+  </form>
+  <!-- <a href="">
     <div class="button first" *ngIf="render()" onclick="click('Show Login')">
       Login!
     </div>
@@ -9,9 +14,9 @@
     <div class="button second" *ngIf="render()">
       Register!
     </div>
-  </a>
+  </a> -->
   <div class="showUser" *ngIf="!render()">
-    <img [src]="photo_url" alt="">
+    <img [src]="photoUrl" alt="">
     <p>{{name}}</p>
     <p class="notThis">{{email}}</p>
   </div>

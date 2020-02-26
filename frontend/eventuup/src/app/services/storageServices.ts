@@ -1,62 +1,63 @@
-import { Injectable, OnDestroy } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
-import 'rxjs/add/operator/share';
+// import { environment } from '../../environments/environment';
+// import { Injectable, OnDestroy } from '@angular/core';
+// import { Observable, Subject } from 'rxjs';
+// import { share } from 'rxjs/operators';
 
-@Injectable()
-export class StorageService implements OnDestroy {
-  private onSubject = new Subject<{ key: string; value: any }>();
-  public changes = this.onSubject.asObservable().share();
 
-  constructor() {
-    this.start();
-  }
+// @Injectable()
+// export class StorageService implements OnDestroy {
+//   private onSubject = new Subject<{ key: string; value: any }>();
+//   public changes = this.onSubject.asObservable().share();
 
-  ngOnDestroy() {
-    this.stop();
-  }
+//   constructor() {
+//     this.start();
+//   }
 
-  public getStorage() {
-    let s = [];
-    for (let i = 0; i < localStorage.length; i++) {
-      s.push({
-        key: localStorage.key(i),
-        value: JSON.parse(localStorage.getItem(localStorage.key(i))),
-      });
-    }
-    return s;
-  }
+//   ngOnDestroy() {
+//     this.stop();
+//   }
 
-  public store(key: string, data: any): void {
-    localStorage.setItem(key, JSON.stringify(data));
-    // the local application doesn't seem to catch changes to localStorage...
-    this.onSubject.next({ key: key, value: data });
-  }
+//   public getStorage() {
+//     let s = [];
+//     for (let i = 0; i < localStorage.length; i++) {
+//       s.push({
+//         key: localStorage.key(i),
+//         value: JSON.parse(localStorage.getItem(localStorage.key(i))),
+//       });
+//     }
+//     return s;
+//   }
 
-  public clear(key) {
-    localStorage.removeItem(key);
-    // the local application doesn't seem to catch changes to localStorage...
-    this.onSubject.next({ key: key, value: null });
-  }
+//   public store(key: string, data: any): void {
+//     localStorage.setItem(key, JSON.stringify(data));
+//     // the local application doesn't seem to catch changes to localStorage...
+//     this.onSubject.next({ key: key, value: data });
+//   }
 
-  private start(): void {
-    window.addEventListener('storage', this.storageEventListener.bind(this));
-  }
+//   public clear(key) {
+//     localStorage.removeItem(key);
+//     // the local application doesn't seem to catch changes to localStorage...
+//     this.onSubject.next({ key: key, value: null });
+//   }
 
-  private storageEventListener(event: StorageEvent) {
-    if (event.storageArea == localStorage) {
-      let v;
-      try {
-        v = JSON.parse(event.newValue);
-      } catch (e) {
-        v = event.newValue;
-      }
-      this.onSubject.next({ key: event.key, value: v });
-    }
-  }
+//   private start(): void {
+//     window.addEventListener('storage', this.storageEventListener.bind(this));
+//   }
 
-  private stop(): void {
-    window.removeEventListener('storage', this.storageEventListener.bind(this));
-    this.onSubject.complete();
-  }
-}
+//   private storageEventListener(event: StorageEvent) {
+//     if (event.storageArea == localStorage) {
+//       let v;
+//       try {
+//         v = JSON.parse(event.newValue);
+//       } catch (e) {
+//         v = event.newValue;
+//       }
+//       this.onSubject.next({ key: event.key, value: v });
+//     }
+//   }
+
+//   private stop(): void {
+//     window.removeEventListener('storage', this.storageEventListener.bind(this));
+//     this.onSubject.complete();
+//   }
+// }

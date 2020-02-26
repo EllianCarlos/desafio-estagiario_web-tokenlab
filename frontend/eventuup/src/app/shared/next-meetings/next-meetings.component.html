@@ -1,6 +1,6 @@
 <aside>
   <h1> Próximos Encontros</h1>
   <div class="meetingHolder">
-    <app-meeting></app-meeting>
+    <app-meeting *ngFor="let meet of meetings" [meet]="meet"></app-meeting>
   </div>
 </aside>

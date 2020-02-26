@@ -53,17 +53,19 @@ class EventController {
     if (!(await schema.isValid(request.body))) {
       return response
       .status(400)
-      .json({ error: 'Os dados inseridos não são valídos.' });
+      .json({ error: 'Os dados inseridos não são valídos. Seus dados:' + JSON.stringify(request.body) });
     }
     
-    const eventExists = Event.findOne({
+    const eventExists = await Event.findOne({
       where: {
-        creator: request.creator,
-        start: request.start
+        creator: request.body.creator,
+        start: request.body.start
       }
     }); 
+    console.log("AAAAAAAAAA")
+    console.log(eventExists);
     
-    if (eventExists) {
+    if (!!eventExists) {
       return response
       .status(400)
       .json({ error: 'Eventos não podem ter a mesma data e o mesmo criador.' });
